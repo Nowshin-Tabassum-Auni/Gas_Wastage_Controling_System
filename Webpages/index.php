@@ -25,7 +25,7 @@
                         <li><a href="#about">About</a></li>
                         <li><a href="#situation">Situation</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="login_customer.php">Login</a></li>
+                        <li><a href="login_user.php">Login</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
