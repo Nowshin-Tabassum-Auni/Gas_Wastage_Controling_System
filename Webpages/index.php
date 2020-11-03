@@ -62,7 +62,7 @@
                     <li><a href="#"><i class="fa fa-google-plus-square" style="color:#DD4B39"></i></a></li>
                 </ul>
             </div>
-            <div class="col-md-6"><img src="img/boy&girl.jpg" alt="" height="585px" width="605px"></div>
+            <div class="col-md-6"><img src="img/about1.jpg" alt="" height="610px" width="615px"></div>
         </div>
     </div>
     <div class="container-fluid" id="situation">
@@ -75,12 +75,12 @@
                 <div class="col-md-3">
                     <div class="circle">
                         <h3>29%</h3></div>
-                    <p>Industrial Wastage</p>
+                    <p>Industrial Usage</p>
                 </div>
                 <div class="col-md-3">
                     <div class="circle">
                         <h3>13%</h3></div>
-                    <p>Residential Wastage</p>
+                    <p>Residential Usage</p>
                 </div>
                 <div class="col-md-3">
                     <div class="circle">
@@ -90,7 +90,7 @@
                 <div class="col-md-3">
                     <div class="circle">
                         <h3>7.33%</h3></div>
-                    <p>Transport</p>
+                    <p>Transportion</p>
                 </div>
             </div>
         </div>
@@ -152,7 +152,7 @@
     <div class="container-fluid" id="footer">
         <div class="row">
             <div class="col-md-12">
-                <p>@2020 All Rights Reserved</p>
+                <p>©2020 All Rights Reserved</p>
             </div>
         </div>
     </div>
