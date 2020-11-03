@@ -21,7 +21,7 @@ if(!isset($_SESSION))
         <div class="container-fluid" id="header">
             <div class="row">
             <div class="col-md-4">
-                <div class="logo"> <img src="img/gas-iot_Logo.png" alt="logo" href="#" ></div>
+                <div class="logo"> <a href="index.php"><img src="img/gas-iot_Logo.png" height= "70px" alt="logo"></a></div>
             </div>
             <div class="col-md-8">
                 <div class="menu">
