@@ -29,6 +29,8 @@ $resultu = mysqli_query($conn, $resultu);
 
     <body>
             <?php  $resu = mysqli_fetch_array($resultu); ?>
+
+               <?php include 'header.php'; ?>
                 <div class="container" id="top">
                     <div class="row">
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"></div>
@@ -104,8 +106,8 @@ $resultu = mysqli_query($conn, $resultu);
                     <div class="col-md-1"></div>
                 </div>
             </div>
-            <a href="index.php">Home</a><br>
-            <a href="logout.php">Logout</a>
+         
+            <?php include 'footer.php'; ?>
     </body>
 
     </html>
