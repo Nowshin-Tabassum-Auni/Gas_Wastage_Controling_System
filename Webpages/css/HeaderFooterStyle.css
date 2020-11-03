@@ -3,9 +3,10 @@
     background: #252e30;
 }
 
-#header logo {
+#header .logo {
     padding-top: 5px;
-    width: 200px;
+    height: 70px
+   
 }
 
 #header .menu {
@@ -32,13 +33,10 @@
 }
 
 #header .menu ul li a:hover {
-    color: #2ecc71;
+    color: #97BAF0;
     text-decoration-style: solid;
 }
 
-#header .menu ul li .dropdown-menu a {
-    background: #252e30;
-}
 
 .footer {
     background: #191f21;
