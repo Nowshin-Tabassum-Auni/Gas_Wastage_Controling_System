@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 02, 2020 at 08:13 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
+-- Generation Time: Nov 03, 2020 at 10:43 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -45,7 +45,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `hNs_no`, `total_usage`, `area`, `zip_code`, `password`, `con`, `email`) VALUES
-(101, 'Nowshin', 'Rampura', '5000', 'Rampura', 1219, 'abcde', '01122334455', 'adminnowshin@gmail.com');
+(101, 'Nowshin', '17 & 01', '5000', 'Rampura', 1219, 'abcde', '01122334455', 'admin-nowshin@gas-iot.com'),
+(102, 'Fahim', '18 & 03', '7000', 'Bashundhara R/A', 1229, 'abcde', '12345678910', 'admin-fahim@gas-iot.com'),
+(103, 'Aritra', '19 & 05', '9000', 'Narayanganj', 1400, 'abcde', '98989898989', 'admin-aritra@gas-iot.com');
 
 --
 -- Indexes for dumped tables
@@ -66,7 +68,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
