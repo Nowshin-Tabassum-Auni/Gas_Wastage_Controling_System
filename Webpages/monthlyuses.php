@@ -28,7 +28,7 @@ include_once("connection.php");
 
 $resultw = "SELECT
   YEAR(date) AS YEAR, MONTH(date) AS MONTH, SUM(used_gas) AS USED
-FROM dashboard
+FROM gas_uses
 WHERE id = '$user_id'
 GROUP BY YEAR(date), MONTH(date)
 ORDER BY YEAR(date) ASC, MONTH(date) ASC";

@@ -1,48 +1,88 @@
 <?php
+include 'connection.php';
+        // $sql ="SELECT * FROM gas_uses WHERE id = 103";
+
+$sql = "SELECT
+  YEAR(date) AS YEAR, MONTH(date) AS MONTH, SUM(used_gas) AS USED
+FROM gas_uses
+WHERE id = 101
+GROUP BY YEAR(date), MONTH(date)
+ORDER BY YEAR(date) DESC, MONTH(date) DESC";
  
-$dataPoints = array( 
-	array("y" => 7,"label" => "March" ),
-	array("y" => 12,"label" => "April" ),
-	array("y" => 28,"label" => "May" ),
-	array("y" => 18,"label" => "June" ),
-	array("y" => 41,"label" => "July" )
-);
+         $result = mysqli_query($conn,$sql);
+         $chart_data="";
+         while ($row = mysqli_fetch_array($result)) { 
+ 
+ if($row['MONTH']== date("m") && $row['YEAR']==(date("Y")-1))
+ {
+ 	break;
+ }
+            $duration[]  = $row['MONTH']." ".$row['YEAR']  ;
+            $data[] = $row['USED'];
+        }
+ 
+ 
+ 
+ 
  
 ?>
-<!DOCTYPE HTML>
-<html>
-<head>
-<script>
-window.onload = function() {
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title> 
+    </head>
+    <body>
+        <div style="width:60%;hieght:20%;text-align:center">
+            <h2 class="page-header" >Monthly Uses Graph </h2>
+            <div>Product </div>
+            <canvas  id="chartjs_bar"></canvas> 
+        </div>    
+    </body>
+  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script type="text/javascript">
+      var ctx = document.getElementById("chartjs_bar").getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels:<?php echo json_encode($duration); ?>,
+                        datasets: [{
+                            backgroundColor: [
+                               "#5969ff",
+                                "#ff407b",
+                                "#25d5f2",
+                                
+                                "#9422f6",
+                                "#ffc750",
+                                "#ff6347",
+                                "#7040fa",
+                                
+                                "#9ce6ae",
+                                "#ff69b4",
+                                "#660057",
+                                
+                                "#966f33",
+                                "#33924a"
+                            ],
+                            data:<?php echo json_encode($data); ?>,
+                        }]
+                    },
+                    options: {
+                           legend: {
+                        display: true,
+                        position: 'bottom',
  
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	title:{
-		text: "Monthly Uses"
-	},
-	axisY: {
-		title: "Revenue (in USD)",
-		includeZero: true,
-		prefix: "$",
-		suffix:  "k"
-	},
-	data: [{
-		type: "bar",
-		yValueFormatString: "$#,##0K",
-		indexLabel: "{y}",
-		indexLabelPlacement: "inside",
-		indexLabelFontWeight: "bolder",
-		indexLabelFontColor: "white",
-		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
-	}]
-});
-chart.render();
+                        labels: {
+                            fontColor: '#71748d',
+                            fontFamily: 'Circular Std Book',
+                            fontSize: 14,
+                        }
+                    },
  
-}
-</script>
-</head>
-<body>
-<div id="chartContainer" style="height: 370px; width: 100%;"></div>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-</body>
-</html>   
+ 
+                }
+                });
+    </script>
+</html>
