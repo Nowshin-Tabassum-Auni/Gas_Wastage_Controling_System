@@ -130,7 +130,9 @@ $resultu = mysqli_query($conn, $resultu);
         
     </form>-->
 
-   <?php include 'monthlyuses.php';?>
+   <?php include 'monthlyuses.php';
+    include 'usergraph.php';
+   ?>
             <?php include 'footer.php'; ?>
     </body>
 

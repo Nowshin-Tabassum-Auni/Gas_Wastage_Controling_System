@@ -1,11 +1,27 @@
 <?php
+
+if(empty($_SESSION["username"]))
+{
+  header('Location: index.php');
+}
+require 'connection.php';
 include 'connection.php';
-        // $sql ="SELECT * FROM gas_uses WHERE id = 103";
+$username = $_SESSION["username"];
+$resultu = "SELECT * FROM users U where U.username = '".$username."' ";
+$resultu = mysqli_query($conn, $resultu);
+ $resu = mysqli_fetch_array($resultu); 
+    $user_id = $resu['user_id'];
+           
+?>
+
+<?php
+
+        // $sql ="SELECT * FROM gas_uses WHERE id = 101";
 
 $sql = "SELECT
   YEAR(date) AS YEAR, MONTH(date) AS MONTH, SUM(used_gas) AS USED
 FROM gas_uses
-WHERE id = 101
+WHERE id = '$user_id'
 GROUP BY YEAR(date), MONTH(date)
 ORDER BY YEAR(date) DESC, MONTH(date) DESC";
  
@@ -21,10 +37,6 @@ ORDER BY YEAR(date) DESC, MONTH(date) DESC";
             $data[] = $row['USED'];
         }
  
- 
- 
- 
- 
 ?>
 <!DOCTYPE html>
 <html lang="en"> 
@@ -32,11 +44,16 @@ ORDER BY YEAR(date) DESC, MONTH(date) DESC";
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title></title> 
+        <style type="text/css">
+        	body{
+        		margin-left: 50px;
+        	}
+        </style>
     </head>
     <body>
         <div style="width:60%;hieght:20%;text-align:center">
             <h2 class="page-header" >Monthly Uses Graph </h2>
-            <div>Product </div>
+            <div>Gas Used in last 12 Months</div>
             <canvas  id="chartjs_bar"></canvas> 
         </div>    
     </body>

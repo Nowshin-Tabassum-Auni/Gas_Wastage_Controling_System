@@ -31,7 +31,7 @@ $resultw = "SELECT
 FROM gas_uses
 WHERE id = '$user_id'
 GROUP BY YEAR(date), MONTH(date)
-ORDER BY YEAR(date) ASC, MONTH(date) ASC";
+ORDER BY YEAR(date) DESC, MONTH(date) DESC";
    
 $resultw = mysqli_query($conn, $resultw);
 
