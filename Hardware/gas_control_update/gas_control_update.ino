@@ -104,7 +104,7 @@ void loop()
   idValue = String(id);
   sValue = String(valSensor);
   postData = "id=" +idValue+  "&gas_value"+sValue;
-  http.begin("http://192.168.43.28/Github/Gas_Wastage_Controling_System/Webpages.php");              //Specify request destination
+  http.begin("http://192.168.43.28/Github/Gas_Wastage_Controling_System/Webpages/insert.php");              //Specify request destination
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");    //Specify content-type header
  
   int httpCode = http.POST(postData);   //Send the request
