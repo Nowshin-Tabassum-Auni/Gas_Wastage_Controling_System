@@ -40,7 +40,7 @@ $resultu = mysqli_query($conn, $resultu);
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <center>
-                                        <h1>Welcome <?php echo $resu['username'];?>
+                                        <h1>Welcome <?php echo $resu['fullname'];?>
                             </h1>
                                  <a href="edit_profile.php">Edit Profile</a> </center>
                                 </div>
@@ -58,6 +58,12 @@ $resultu = mysqli_query($conn, $resultu);
                                                         <td>Username: </td>
                                                         <td>
                                                             <?php echo $resu['username']; ?>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Full Name: </td>
+                                                        <td>
+                                                            <?php echo $resu['fullname']; ?>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -115,101 +121,16 @@ $resultu = mysqli_query($conn, $resultu);
                     <div class="col-md-1"></div>
                     <div class="col-md-10">
                        
-     <form action="" method="post" name="">
+     <!--<form action="" method="post" name="">
     
                 <h3>
                 <input type="text" name="month" placeholder="Enter month No"></h3> <br/>
             
                 <h3>    <input type="submit" name="Submit" value="Submit"></h3>
         
-    </form>
+    </form>-->
 
-    <?php
-
-include_once("connection.php");
-
-            $month = date("m");
-//fetching data in descending order (lastest entry first)
-            if(!empty($_POST['Submit']))
-    {
-        $month = $_POST['month'];
-    }
-
-$resultus = "SELECT * FROM `gas_uses` WHERE user_id = '{$user_id}' AND Month(uDate) LIKE '{$month}'";
-            
-$resultus = mysqli_query($conn, $resultus);
-
-?>
- <h1>Gas Uses</h1>
-                <hr>
-               
-
- <table class="table table-hover">
-                    <thead> <tr>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Gas Use</th>
-                    </tr> </thead>
-                    <?php 
-                    while($res = mysqli_fetch_array($resultus)) { 
-                    ?>
-                    <tbody><tr> 
-                    <td><?php echo $res['uDate']; ?></td>
-                    <td><?php echo $res['uTime']; ?></td>    
-                    <td><?php echo $res['gas_use'];?></td>
-                    </tr> </tbody> 
-                    <?php   
-                    }
-                    ?>
-
-                </table>
-                    </div>
-
-                    <div class="col-md-1"></div>
-</div>
-
-          <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10">
-                        <h1>Gas Wastage</h1>
-                <hr>
-        
-    <?php
-
-include_once("connection.php");
-
-     
-
-$resultw = "SELECT * FROM `gas_uses` WHERE user_id = '{$user_id}' AND Month(uDate) LIKE '{$month}'";
-            
-$resultw = mysqli_query($conn, $resultw);
-
-?>
-
- <table class="table table-hover">
-                    <thead> <tr>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Gas Use</th>
-                    </tr> </thead>
-                    <?php 
-                    while($res = mysqli_fetch_array($resultw)) { 
-                    ?>
-                    <tbody><tr> 
-                    <td><?php echo $res['uDate']; ?></td>
-                    <td><?php echo $res['uTime']; ?></td>    
-                    <td><?php echo $res['gas_waste'];?></td>
-                    </tr> </tbody> 
-                    <?php   
-                    }
-                    ?>
-
-                </table>
-                    </div>
-
-                    <div class="col-md-1"></div>
-</div>
-</div>
+   <?php include 'monthlyuses.php';?>
             <?php include 'footer.php'; ?>
     </body>
 

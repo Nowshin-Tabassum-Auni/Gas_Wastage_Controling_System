@@ -59,8 +59,8 @@
     {
         echo "online";
 		$value = $_POST['gas_value'];
-        $id = $_POST['id'];
-
+     //   $id = $_POST['id'];
+$id = 102;
 	    $sql = "INSERT INTO dashboard (id, used_gas, time, date) VALUES ('".$id."', '".$value."', '".$t."', '".$d."')"; 
 echo "insert";
 		if ($conn->query($sql) === TRUE) {
