@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2020 at 10:43 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Generation Time: Jan 18, 2021 at 04:11 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,8 +29,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `users` (
-  `id` int(5) NOT NULL,
+  `user_id` int(5) NOT NULL,
   `username` varchar(50) NOT NULL,
+  `fullname` varchar(100) NOT NULL,
   `hNs_no` varchar(50) NOT NULL,
   `total_usage` varchar(20) NOT NULL,
   `area` varchar(30) NOT NULL,
@@ -44,10 +45,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `hNs_no`, `total_usage`, `area`, `zip_code`, `password`, `con`, `email`) VALUES
-(101, 'Nowshin', '17 & 01', '5000', 'Rampura', 1219, 'abcde', '01122334455', 'admin-nowshin@gas-iot.com'),
-(102, 'Fahim', '18 & 03', '7000', 'Bashundhara R/A', 1229, 'abcde', '12345678910', 'admin-fahim@gas-iot.com'),
-(103, 'Aritra', '19 & 05', '9000', 'Narayanganj', 1400, 'abcde', '98989898989', 'admin-aritra@gas-iot.com');
+INSERT INTO `users` (`user_id`, `username`, `fullname`, `hNs_no`, `total_usage`, `area`, `zip_code`, `password`, `con`, `email`) VALUES
+(101, 'Nowshin', 'Nowshin Tabassum', '17 & 01', '5000', 'Rampura', 1219, 'abcde', '01122334455', 'admin-nowshin@gas-iot.com'),
+(102, 'Fahim', 'Ibtida ', '18 & 03', '7000', 'Bashundhara R/A', 1229, 'abcde', '12345678910', 'admin-fahim@gas-iot.com'),
+(103, 'Aritra', 'Aritra Sarker', '19 & 05', '9000', 'Narayanganj', 1400, 'abcde', '98989898989', 'admin-aritra@gas-iot.com');
 
 --
 -- Indexes for dumped tables
@@ -57,8 +58,8 @@ INSERT INTO `users` (`id`, `username`, `hNs_no`, `total_usage`, `area`, `zip_cod
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `id` (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -68,7 +69,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
